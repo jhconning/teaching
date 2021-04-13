@@ -1,0 +1,669 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Constant Returns to Scale Technologies &#8212; Econ-Teach Notebooks</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Trade Protection" href="Protection_top.html" />
+    <link rel="prev" title="The Specific Factors Model" href="SFM.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Econ-Teach Notebooks</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   Teaching Economics Notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Intro Microeconomics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../intro/intro_top.html">
+   Introduction to Economics
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../intro/intro_geogebra.html">
+     Introduction to Microeconomics (Geogebra)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Trade
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="Ricardian_top.html">
+   Ricardian Trade
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Ricardian_Trade.html">
+     The Ricardian Trade Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="SFM_top.html">
+   Standard Trade Models
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="SFM.html">
+     The Specific Factors Model
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Constant Returns to Scale Technologies
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="Protection_top.html">
+   Trade Protection
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="TariffPartial.html">
+     Simple Tariff
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Tariff_in_general_equilibrium.html">
+     Tariffs in General equilibrium
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Micro Theory
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../micro/micro_top.html">
+   Micro Theory
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../micro/01_Constrained_Optimization.html">
+     Notes on Constrained Optimization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../micro/01_Constrained_Optimization.html#numerical-constrained-optimization">
+     Numerical constrained optimization
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Development + PoliEc
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../micro/micro_top.html">
+   Micro Theory
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../micro/01_Constrained_Optimization.html">
+     Notes on Constrained Optimization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../micro/01_Constrained_Optimization.html#numerical-constrained-optimization">
+     Numerical constrained optimization
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  This Book
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../how/how_top.html">
+   This JupyterBook
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/trade/CRSTechnology.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jhconning/Econ-Teach"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jhconning/Econ-Teach/master?urlpath=tree/notebooks/trade/CRSTechnology.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jhconning/Econ-Teach/blob/master/notebooks/trade/CRSTechnology.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-production-possibility-frontier">
+   The production possibility frontier
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-closed-economy">
+   The closed economy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#production-subsidy-and-tariff">
+   Production subsidy and tariff
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-production-subsidy-to-manufacturers">
+   A production subsidy to manufacturers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-tariff">
+   A tariff
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="constant-returns-to-scale-technologies">
+<h1>Constant Returns to Scale Technologies<a class="headerlink" href="#constant-returns-to-scale-technologies" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>This notebook illustrates a few points about the assumption of constant returns to scale technologies in neo-classical models.</p>
+<p><strong>THIS IS A DRAFT:</strong>  This is just a sketch of graphs and topics used in class.</p>
+<ul class="simple">
+<li><p>FIX:  Indifference curve placement.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sfm</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="n">La</span><span class="p">,</span><span class="n">Tbar</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 250.0)
+</pre></div>
+</div>
+<img alt="../../_images/CRSTechnology_4_1.svg" src="../../_images/CRSTechnology_4_1.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">MPLa</span><span class="p">(</span><span class="n">La</span><span class="p">,</span><span class="n">Tbar</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 400.0)
+</pre></div>
+</div>
+<img alt="../../_images/CRSTechnology_5_1.svg" src="../../_images/CRSTechnology_5_1.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="n">La</span><span class="p">,</span><span class="n">Tbar</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;F(L,K)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">MPLa</span><span class="p">(</span><span class="n">La</span><span class="p">,</span><span class="n">Tbar</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;MPL(L,K)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;L&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/CRSTechnology_6_1.svg" src="../../_images/CRSTechnology_6_1.svg" /></div>
+</div>
+</div>
+<div class="section" id="the-production-possibility-frontier">
+<h2>The production possibility frontier<a class="headerlink" href="#the-production-possibility-frontier" title="Permalink to this headline">¶</a></h2>
+<p>We will use a bowed-out production possibility frontier.  The details of how this is built don’t really matter to the analysis at hand but it will be easy to illustrate by leveraging our earlier analysis of the specific factors model.</p>
+<p>Agriculture requires specific capital <span class="math notranslate nohighlight">\(T\)</span> and mobile labor:</p>
+<div class="math notranslate nohighlight">
+\[Q_a = F(\bar T, L_a)\]</div>
+<p>Manufacturing production requires specific capital <span class="math notranslate nohighlight">\(K\)</span> and mobile labor:</p>
+<div class="math notranslate nohighlight">
+\[Q_m = G(\bar K, L_m)\]</div>
+<p>The quantity of land in the agricultural sector and the quantity of capital in the manufacturing sector are both in fixed inelastic supply during the period of analysis.</p>
+<p>The market for mobile labor is competitive and the market clears at a wage where the sum of labor demands from each sector equals total labor supply.</p>
+<div class="math notranslate nohighlight">
+\[
+L_a + L_m = \bar{L}
+\]</div>
+<p>From this it is easy to build a production possibility frontier (to wit: at every level of <span class="math notranslate nohighlight">\(L_A\)</span> calculate and plot <span class="math notranslate nohighlight">\(Q_a=F(K,L_a)\)</span> and <span class="math notranslate nohighlight">\(Q_m=G(K, \bar L - L_a)\)</span>.</p>
+<p>See the SFM notebook for details on the parameters used to create these visualizations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ppf</span><span class="p">(</span><span class="n">Tbar</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">Kbar</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">Lbar</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/CRSTechnology_9_0.svg" src="../../_images/CRSTechnology_9_0.svg" /></div>
+</div>
+</div>
+<div class="section" id="the-closed-economy">
+<h2>The closed economy<a class="headerlink" href="#the-closed-economy" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(p\)</span> be the relative price of manufactures</p>
+<div class="math notranslate nohighlight">
+\[
+p=\frac{P_m}{P_a}
+\]</div>
+<p>With the assumed technologies and parameters, the economy in autarky will have an autarky relative equilibrium price of <span class="math notranslate nohighlight">\(p=1\)</span> and would look like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">open_trade</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jconn\anaconda3\lib\site-packages\scipy\optimize\minpack.py:175: RuntimeWarning: The iteration is not making good progress, as measured by the 
+  improvement from the last ten iterations.
+  warnings.warn(msg, RuntimeWarning)
+</pre></div>
+</div>
+<img alt="../../_images/CRSTechnology_11_1.svg" src="../../_images/CRSTechnology_11_1.svg" /></div>
+</div>
+</div>
+<div class="section" id="production-subsidy-and-tariff">
+<h2>Production subsidy and tariff<a class="headerlink" href="#production-subsidy-and-tariff" title="Permalink to this headline">¶</a></h2>
+<p>An ad-valorem subsidy on manufactures of <span class="math notranslate nohighlight">\(t\)</span> will raises the effective price received by the domestic supplier from <span class="math notranslate nohighlight">\(P_M\)</span> to <span class="math notranslate nohighlight">\(P_m(1+t)\)</span>.  If we assume no tax or subsidy on agriculture then this also raises the relative price of manufactures from <span class="math notranslate nohighlight">\(p\)</span> to <span class="math notranslate nohighlight">\(p(1+t)\)</span>.</p>
+<p>A tariff can be thought of as a production subsidy to suppliers plus a consumption tax to consumers.</p>
+<p>Suppose the small but closed economy with market equilibrium relative price <span class="math notranslate nohighlight">\(p^a\)</span> opens to trade.  Since it is a small economy its own domestic prices will now be set by the world relative price, let’s call it <span class="math notranslate nohighlight">\(p^w\)</span>.</p>
+<p>The following diagram shows the open economy of a country which had a comparative advantage in the production of agricultural goods. As depicted as it opened to trade the relative price of manufactured goods falls from <span class="math notranslate nohighlight">\(p=p^a=1\)</span> to <span class="math notranslate nohighlight">\(p=p^w=1/2\)</span>. We depict the market equilibrium (with no subsidy or tariff).  As the price rises producers cut back on manufacturing production and expand agricultural production to take advantage of the price change.  Meanwhile consumers substitute away from the now relatively more expensive agricultural good.</p>
+<p>In this new equilibrium the country exports agricultural goods in exchange for manufactures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">open_trade</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jconn\anaconda3\lib\site-packages\scipy\optimize\minpack.py:175: RuntimeWarning: The iteration is not making good progress, as measured by the 
+  improvement from the last ten iterations.
+  warnings.warn(msg, RuntimeWarning)
+</pre></div>
+</div>
+<img alt="../../_images/CRSTechnology_14_1.svg" src="../../_images/CRSTechnology_14_1.svg" /></div>
+</div>
+</div>
+<div class="section" id="a-production-subsidy-to-manufacturers">
+<h2>A production subsidy to manufacturers<a class="headerlink" href="#a-production-subsidy-to-manufacturers" title="Permalink to this headline">¶</a></h2>
+<p>The graph below depicts the effects of a production subsidy on equlibrium.
+Producers faced the distorted prices (steeper price line in graph below). The subsidy induced rise in the relative price of manufactures leads the economy to a new production point along the PPF (where the PPF is tangent to the new distorted price line).  This production bundle is less valuable measured at world prices than the early bundle produced when the country followed it’s comparative advantage.  That can be seen by comparing the world price line (national income at world prices) passing through this new bundle compared to a similar world price line passing through the free trade bundle that was chosen before the country distorted its domestic prices (not drawn below, but see the following figure) which can be seen to have higher intercepts (meaning measured in real terms in terms of either good national income is higher in the undistorted open economy equilibrium).</p>
+<p>We can also see (see this and following diagram) how consumer welfare is reduced.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">open_trade</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jconn\anaconda3\lib\site-packages\scipy\optimize\minpack.py:175: RuntimeWarning: The iteration is not making good progress, as measured by the 
+  improvement from the last ten iterations.
+  warnings.warn(msg, RuntimeWarning)
+</pre></div>
+</div>
+<img alt="../../_images/CRSTechnology_16_1.svg" src="../../_images/CRSTechnology_16_1.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">open_trade</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.25</span><span class="p">),</span> <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "a71079dabdae4f57a1093ae8bb0a0fb4"}
+</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function sfm.open_trade(p, t=0, dt=False)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>It gets a bit busy but if we draw the situation before and after on the same graph we can see clearly how the production subsidy, while it does raise the production of manufactures, also lowers national income measured at world prices as well as welfare.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">open_trade</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">open_trade</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jconn\anaconda3\lib\site-packages\scipy\optimize\minpack.py:175: RuntimeWarning: The iteration is not making good progress, as measured by the 
+  improvement from the last ten iterations.
+  warnings.warn(msg, RuntimeWarning)
+C:\Users\jconn\anaconda3\lib\site-packages\scipy\optimize\minpack.py:175: RuntimeWarning: The iteration is not making good progress, as measured by the 
+  improvement from the last ten iterations.
+  warnings.warn(msg, RuntimeWarning)
+</pre></div>
+</div>
+<img alt="../../_images/CRSTechnology_19_1.svg" src="../../_images/CRSTechnology_19_1.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">twoplot</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">open_trade</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">open_trade</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">twoplot</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "57e020fb00d04c09924fb655996a0a82"}
+</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.twoplot(t)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-tariff">
+<h2>A tariff<a class="headerlink" href="#a-tariff" title="Permalink to this headline">¶</a></h2>
+<p>A tariff can be analyzed just as the production subsidy above, only that now consumers also face higher prices <span class="math notranslate nohighlight">\(p(1+t)\)</span>.</p>
+<p>The country still trades with the world at world prices <span class="math notranslate nohighlight">\(p=p^w\)</span> but consumers face the price distortion introduced by the tariff.</p>
+<p>We don’t draw this situatino but look at the world price line (or national income line) at world prices running through the subsidy distorted production bundle.  The country must trade along this line. But if consumers face distorted prices consumption must be at a point where the community indifference is tangent to these distorted price lines. Technically we can think of moving the distorted price line out parallel from the PPF along this world price line until we touch an indifference curve tangent to this distorted line.  It’s easy to verify that this will take us to an indifference curve below the lowest indifference curve above.  Hence we see that in addition to the deadweight loss (lost national income) from producing the wrong bundle of goods, when analysing a tariff, we also see the consumer loss of welfare from the consumer tax.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python379jvsc74a57bd045ff23af1ec6ddd91151147c9b40c85b53c9b169000ec0677444111457c9a5fe",
+            path: "./notebooks/trade"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python379jvsc74a57bd045ff23af1ec6ddd91151147c9b40c85b53c9b169000ec0677444111457c9a5fe'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="SFM.html" title="previous page">The Specific Factors Model</a>
+    <a class='right-next' id="next-link" href="Protection_top.html" title="next page">Trade Protection</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jonathan Conning<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

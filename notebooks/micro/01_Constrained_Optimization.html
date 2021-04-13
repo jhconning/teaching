@@ -1,0 +1,840 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes on Constrained Optimization &#8212; Econ-Teach Notebooks</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="This JupyterBook" href="../how/how_top.html" />
+    <link rel="prev" title="Micro Theory" href="micro_top.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Econ-Teach Notebooks</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   Teaching Economics Notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Intro Microeconomics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../intro/intro_top.html">
+   Introduction to Economics
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../intro/intro_geogebra.html">
+     Introduction to Microeconomics (Geogebra)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Trade
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../trade/Ricardian_top.html">
+   Ricardian Trade
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../trade/Ricardian_Trade.html">
+     The Ricardian Trade Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../trade/SFM_top.html">
+   Standard Trade Models
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../trade/SFM.html">
+     The Specific Factors Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../trade/CRSTechnology.html">
+     Constant Returns to Scale Technologies
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../trade/Protection_top.html">
+   Trade Protection
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../trade/TariffPartial.html">
+     Simple Tariff
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../trade/Tariff_in_general_equilibrium.html">
+     Tariffs in General equilibrium
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Micro Theory
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="micro_top.html">
+   Micro Theory
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Notes on Constrained Optimization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#numerical-constrained-optimization">
+     Numerical constrained optimization
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Development + PoliEc
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="micro_top.html">
+   Micro Theory
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Notes on Constrained Optimization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#numerical-constrained-optimization">
+     Numerical constrained optimization
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  This Book
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../how/how_top.html">
+   This JupyterBook
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/micro/01_Constrained_Optimization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jhconning/Econ-Teach"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jhconning/Econ-Teach/master?urlpath=tree/notebooks/micro/01_Constrained_Optimization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jhconning/Econ-Teach/blob/master/notebooks/micro/01_Constrained_Optimization.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Notes on Constrained Optimization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analytical-and-numerical-approaches">
+     Analytical and numerical approaches
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#consumer-s-optimization-problem">
+       Consumer’s optimization problem:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-no-arbitrage-argument">
+     The ‘no-arbitrage’ argument
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-constrained-optimization">
+   Numerical constrained optimization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-section">
+     Code Section
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plotting-functions">
+       Plotting functions
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="notes-on-constrained-optimization">
+<h1>Notes on Constrained Optimization<a class="headerlink" href="#notes-on-constrained-optimization" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="analytical-and-numerical-approaches">
+<h2>Analytical and numerical approaches<a class="headerlink" href="#analytical-and-numerical-approaches" title="Permalink to this headline">¶</a></h2>
+<p>This notebook contains some interactive graphical examples and a simple sample numerical constrained optimization.  This notebook uses widgets from the <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> library which will not be rendered in a static view.</p>
+<p>To keep thing uncluttered much of the code has been moved to a <a class="reference external" href="#Code-Section">code section</a>. To render and later figures and analysis run the code cells there first and then move through the cells below.</p>
+<div class="section" id="consumer-s-optimization-problem">
+<h3>Consumer’s optimization problem:<a class="headerlink" href="#consumer-s-optimization-problem" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\max_{x_0,x_1} U(x_0,x_1) \]</div>
+<p>subject to a budget constraint</p>
+<div class="math notranslate nohighlight">
+\[p x_0 + x_1 \leq I \]</div>
+<p>where <span class="math notranslate nohighlight">\(p=\frac{p_{0}}{p_{1}}\)</span></p>
+<p>Let’s make some parameter assumptions for the default examples and diagrams below.</p>
+<p>Now define the utility function and budget constraint</p>
+<p>For this Cobb-Douglas we can get easy analytical solutions that give us the Marshallian demands:</p>
+<div class="math notranslate nohighlight">
+\[x_0^* = \alpha \cdot \frac{I}{p}\]</div>
+<div class="math notranslate nohighlight">
+\[x_1^* = (1-\alpha) \cdot I\]</div>
+<p>Here is a function that given prices, income and share parameter, returns a vector of Marshallian demands <span class="math notranslate nohighlight">\([x_0^*, x_1^*]\)</span>, along with the maximized level of utility <span class="math notranslate nohighlight">\(Ux_0^*, x_1^*)\)</span>.</p>
+<p>Cobb-Douglas utility:  <span class="math notranslate nohighlight">\(U(c_0,c_1) = c_0^a \cdot c_1^{1-a}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;../intro&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">cd</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">consume_plot</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">I</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_Constrained_Optimization_8_0.svg" src="../../_images/01_Constrained_Optimization_8_0.svg" /></div>
+</div>
+<p>In the next cell control plot parameters with sliders (will only display if running with live kernel)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">consume_plot</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">I</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.1</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "05c40df94c0146d6a4adad9957255c56"}
+</script></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-no-arbitrage-argument">
+<h2>The ‘no-arbitrage’ argument<a class="headerlink" href="#the-no-arbitrage-argument" title="Permalink to this headline">¶</a></h2>
+<p>Move the slider to move the consumption point along the budget line. Keep adjusting until we reach the highest indifference curve at a tangency point.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">I</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arb_plot</span><span class="p">(</span><span class="n">c0g</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">I</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_Constrained_Optimization_13_0.svg" src="../../_images/01_Constrained_Optimization_13_0.svg" /></div>
+</div>
+<p>In the next cell control plot parameters with sliders (will only display if running with live kernel)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">arb_plot</span><span class="p">,</span> <span class="n">c0g</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">I</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "09d64060b7e342fab53127ef2d962cfb"}
+</script></div>
+</div>
+</div>
+</div>
+<div class="section" id="numerical-constrained-optimization">
+<h1>Numerical constrained optimization<a class="headerlink" href="#numerical-constrained-optimization" title="Permalink to this headline">¶</a></h1>
+<p>The problem we have been solving can be easily solved analytically (i.e. we can derive formulas for Marshallian demands) but it’s useful to also see how this type of constrained optimization problem can be solved numerically using the <code class="docutils literal notranslate"><span class="pre">scipy.opimize</span></code> library.</p>
+<p>If we choose good one to be the numeraire (i.e. set <span class="math notranslate nohighlight">\(p_1=1\)</span>) then the budget constraint</p>
+<div class="math notranslate nohighlight">
+\[p_0 x_0 + p_1 x_1 = I \]</div>
+<p>can be rewritten</p>
+<div class="math notranslate nohighlight">
+\[p x_0 + x_1 = I \]</div>
+<p>where <span class="math notranslate nohighlight">\(p=\frac{p_0}{p_1}\)</span> is the relative price of good 0 (i.e. how many units of good 1 must be exchange for one unit of good 0).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">minimize</span></code> function will want us to pass in constraints expressed in a way similar to the way we use them inside a Lagrangian. In our case the problem is:</p>
+<div class="math notranslate nohighlight">
+\[\max L(x_0, x_1, I, \lambda) = u(x_0, x_1) + \lambda (p x_0 + x_1 - I) \]</div>
+<p>The budget function defines the constraint as a function of <span class="math notranslate nohighlight">\(x=(x_0, x_1)\)</span>.  What we actually pass to the <code class="docutils literal notranslate"><span class="pre">minimize</span></code> function is a small dictionary with ‘type’ and ‘fun’ keys.  The ‘type refers to whether it is an equality or inequality constraint and the ‘fun’ points to the budget function we’ve defined.</p>
+<p>We are going to wrap all of this inside a function <code class="docutils literal notranslate"><span class="pre">optimum(p,</span> <span class="pre">I)</span></code> to allow us to find an optimum for any given price vector <span class="math notranslate nohighlight">\(p\)</span> and income  <span class="math notranslate nohighlight">\(I\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">demands</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span> <span class="n">alpha</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="nf">budget</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">I</span><span class="p">])</span>
+    
+    <span class="k">def</span> <span class="nf">negU</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">U</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">I</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">p</span><span class="p">,</span> <span class="p">(</span><span class="n">I</span><span class="o">/</span><span class="mi">2</span><span class="p">)])</span>  <span class="c1"># initial guess - spend half I on each good</span>
+    
+    <span class="n">ux</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">negU</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">constraints</span> <span class="o">=</span> <span class="p">({</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span> <span class="p">:</span> <span class="n">budget</span> <span class="p">})</span> <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">ux</span><span class="o">.</span><span class="n">x</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like it works. Suppose <span class="math notranslate nohighlight">\(p=1, I=100\)</span> and the Cobb-Douglass share parameter is <span class="math notranslate nohighlight">\(\alpha = 0.7\)</span>), then demand for <span class="math notranslate nohighlight">\(x_0\)</span> and x_1$ are found to be:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x0opt</span><span class="p">,</span> <span class="n">x1opt</span><span class="p">]</span> <span class="o">=</span> <span class="n">demands</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
+
+<span class="n">x0opt</span><span class="p">,</span> <span class="n">x1opt</span><span class="p">,</span> <span class="n">U</span><span class="p">([</span><span class="n">x0opt</span><span class="p">,</span> <span class="n">x1opt</span><span class="p">],</span> <span class="mf">0.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">61</span><span class="n">a5d531916a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="n">x0opt</span><span class="p">,</span> <span class="n">x1opt</span><span class="p">]</span> <span class="o">=</span> <span class="n">demands</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">x0opt</span><span class="p">,</span> <span class="n">x1opt</span><span class="p">,</span> <span class="n">U</span><span class="p">([</span><span class="n">x0opt</span><span class="p">,</span> <span class="n">x1opt</span><span class="p">],</span> <span class="mf">0.4</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-7-abb54d7aea75&gt;</span> in <span class="ni">demands</span><span class="nt">(p, I, a)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">I</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">p</span><span class="p">,</span> <span class="p">(</span><span class="n">I</span><span class="o">/</span><span class="mi">2</span><span class="p">)])</span>  <span class="c1"># initial guess - spend half I on each good</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">ux</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">negU</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">constraints</span> <span class="o">=</span> <span class="p">({</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span> <span class="p">:</span> <span class="n">budget</span> <span class="p">})</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> 
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="k">return</span> <span class="n">ux</span><span class="o">.</span><span class="n">x</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\scipy\optimize\_minimize.py</span> in <span class="ni">minimize</span><span class="nt">(fun, x0, args, method, jac, hess, hessp, bounds, constraints, tol, callback, options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">624</span>     <span class="k">elif</span> <span class="n">meth</span> <span class="o">==</span> <span class="s1">&#39;slsqp&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">625</span>         <span class="k">return</span> <span class="n">_minimize_slsqp</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">jac</span><span class="p">,</span> <span class="n">bounds</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">626</span>                                <span class="n">constraints</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">callback</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">627</span>     <span class="k">elif</span> <span class="n">meth</span> <span class="o">==</span> <span class="s1">&#39;trust-constr&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">628</span>         <span class="k">return</span> <span class="n">_minimize_trustregion_constr</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">jac</span><span class="p">,</span> <span class="n">hess</span><span class="p">,</span> <span class="n">hessp</span><span class="p">,</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\scipy\optimize\slsqp.py</span> in <span class="ni">_minimize_slsqp</span><span class="nt">(func, x0, args, jac, bounds, constraints, maxiter, ftol, iprint, disp, eps, callback, finite_diff_rel_step, **unknown_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">368</span>     <span class="n">sf</span> <span class="o">=</span> <span class="n">_prepare_scalar_function</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="n">jac</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">369</span>                                   <span class="n">finite_diff_rel_step</span><span class="o">=</span><span class="n">finite_diff_rel_step</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">370</span>                                   <span class="n">bounds</span><span class="o">=</span><span class="n">new_bounds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span> 
+<span class="g g-Whitespace">    </span><span class="mi">372</span>     <span class="c1"># Initialize the iteration counter and the mode value</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\scipy\optimize\optimize.py</span> in <span class="ni">_prepare_scalar_function</span><span class="nt">(fun, x0, jac, args, bounds, epsilon, finite_diff_rel_step, hess)</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>     <span class="c1"># calculation reduces overall function evaluations.</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>     <span class="n">sf</span> <span class="o">=</span> <span class="n">ScalarFunction</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">hess</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">262</span>                         <span class="n">finite_diff_rel_step</span><span class="p">,</span> <span class="n">bounds</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="n">epsilon</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span> 
+<span class="g g-Whitespace">    </span><span class="mi">264</span>     <span class="k">return</span> <span class="n">sf</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\scipy\optimize\_differentiable_functions.py</span> in <span class="ni">__init__</span><span class="nt">(self, fun, x0, args, grad, hess, finite_diff_rel_step, finite_diff_bounds, epsilon)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> 
+<span class="g g-Whitespace">     </span><span class="mi">75</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_update_fun_impl</span> <span class="o">=</span> <span class="n">update_fun</span>
+<span class="ne">---&gt; </span><span class="mi">76</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_update_fun</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span> 
+<span class="g g-Whitespace">     </span><span class="mi">78</span>         <span class="c1"># Gradient evaluation</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\scipy\optimize\_differentiable_functions.py</span> in <span class="ni">_update_fun</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">164</span>     <span class="k">def</span> <span class="nf">_update_fun</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">165</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_updated</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">166</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_update_fun_impl</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">167</span>             <span class="bp">self</span><span class="o">.</span><span class="n">f_updated</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">168</span> 
+
+<span class="nn">~\anaconda3\lib\site-packages\scipy\optimize\_differentiable_functions.py</span> in <span class="ni">update_fun</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> 
+<span class="g g-Whitespace">     </span><span class="mi">72</span>         <span class="k">def</span> <span class="nf">update_fun</span><span class="p">():</span>
+<span class="ne">---&gt; </span><span class="mi">73</span>             <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">fun_wrapped</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> 
+<span class="g g-Whitespace">     </span><span class="mi">75</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_update_fun_impl</span> <span class="o">=</span> <span class="n">update_fun</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\scipy\optimize\_differentiable_functions.py</span> in <span class="ni">fun_wrapped</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>         <span class="k">def</span> <span class="nf">fun_wrapped</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>             <span class="bp">self</span><span class="o">.</span><span class="n">nfev</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>             <span class="k">return</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> 
+<span class="g g-Whitespace">     </span><span class="mi">72</span>         <span class="k">def</span> <span class="nf">update_fun</span><span class="p">():</span>
+
+<span class="nn">&lt;ipython-input-7-abb54d7aea75&gt;</span> in <span class="ni">negU</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">def</span> <span class="nf">negU</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">7</span>         <span class="k">return</span> <span class="o">-</span><span class="n">U</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">I</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">p</span><span class="p">,</span> <span class="p">(</span><span class="n">I</span><span class="o">/</span><span class="mi">2</span><span class="p">)])</span>  <span class="c1"># initial guess - spend half I on each good</span>
+
+<span class="ne">NameError</span>: name &#39;U&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is very close to the exact analytical solution but the solver sometimes stops just short of the true optimum (if we wanted to we could get much closer by setting a higher tolerance threshold in the minimize solver)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ademands</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([40.0, 60.0], 51.01698002503163)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally let’s setup a simple widget to let us see the consumer optimum changes with parameters.</p>
+<p>Will only display if run with a live kernel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">demands</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">a</span> <span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "ba7112d230494efe8a8a741eb016deba"}
+</script></div>
+</div>
+<div class="section" id="code-section">
+<h2>Code Section<a class="headerlink" href="#code-section" title="Permalink to this headline">¶</a></h2>
+<p>Run code below first to re-render the graphs above</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-whitegrid&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Default parameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">I</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now define the utility function and budget constraint and other helpful functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># useful for plots and calculations</span>
+<span class="k">def</span> <span class="nf">budgetc</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">I</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;c1 as a function of c0 along budget line&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">I</span> <span class="o">-</span> <span class="n">p</span><span class="o">*</span><span class="n">c0</span>
+
+<span class="k">def</span> <span class="nf">U</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Utility at c=(c[0], c[1])&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">MU0</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;MU of Cobb-Douglas&#39;&#39;&#39;</span>
+    <span class="k">return</span>  <span class="n">a</span><span class="o">*</span><span class="n">U</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+
+<span class="k">def</span> <span class="nf">MU1</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="k">return</span>  <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">U</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">indif</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">ubar</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;c1 as function of c0, implicitly defined by U(c0, c1) = ubar&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">ubar</span><span class="o">/</span><span class="p">(</span><span class="n">c0</span><span class="o">**</span><span class="n">a</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ademands</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Analytic solution for interior optimum&#39;&#39;&#39;</span>
+    <span class="n">c0</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">I</span><span class="o">/</span><span class="n">p</span>
+    <span class="n">c1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">I</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="n">c0</span><span class="p">,</span><span class="n">c1</span><span class="p">]</span>
+    <span class="n">uopt</span> <span class="o">=</span> <span class="n">U</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span><span class="p">,</span> <span class="n">uopt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-functions">
+<h3>Plotting functions<a class="headerlink" href="#plotting-functions" title="Permalink to this headline">¶</a></h3>
+<p>First define some reasonable outer graph limits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmin</span><span class="p">,</span> <span class="n">pmax</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span>
+<span class="n">Imin</span><span class="p">,</span> <span class="n">Imax</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span>
+<span class="n">cmax</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="n">Imax</span><span class="o">/</span><span class="n">pmin</span>
+<span class="n">c0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmax</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">consume_plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="n">ce</span><span class="p">,</span> <span class="n">uebar</span> <span class="o">=</span> <span class="n">ademands</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">budgetc</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">I</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">budgetc</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">I</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">indif</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">uebar</span><span class="p">,</span> <span class="n">a</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">ce</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="n">ce</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">ce</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="n">ce</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ce</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ce</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;ob&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$c_0$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$c_1$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">arb_plot</span><span class="p">(</span><span class="n">c0g</span><span class="p">):</span>
+    <span class="n">cg</span> <span class="o">=</span> <span class="p">[</span><span class="n">c0g</span><span class="p">,</span><span class="n">I</span><span class="o">-</span><span class="n">c0g</span><span class="p">]</span>
+    <span class="sd">&#39;&#39;&#39;Display characteristics of a guess along the constraint&#39;&#39;&#39;</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">budgetc</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">I</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">budgetc</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">I</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">indif</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">U</span><span class="p">(</span><span class="n">cg</span><span class="p">)),</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">cg</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="n">cg</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">cg</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="n">cg</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cg</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">cg</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;ob&#39;</span><span class="p">)</span>
+    <span class="n">mu0pd</span><span class="p">,</span> <span class="n">mu1pd</span> <span class="o">=</span> <span class="n">MU0</span><span class="p">(</span><span class="n">cg</span><span class="p">),</span> <span class="n">MU1</span><span class="p">(</span><span class="n">cg</span><span class="p">)</span><span class="o">/</span><span class="n">p</span>
+    <span class="k">if</span> <span class="n">mu0pd</span> <span class="o">&gt;</span> <span class="n">mu1pd</span><span class="p">:</span>
+        <span class="n">inq</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$&gt;$&#39;</span>
+    <span class="k">elif</span> <span class="n">mu0pd</span> <span class="o">&lt;</span> <span class="n">mu1pd</span><span class="p">:</span>
+        <span class="n">inq</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$&lt;$&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">inq</span> <span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$=$&#39;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{MU_0}{p_0}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="n">inq</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{MU_1}{p_1}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">utext</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$(</span><span class="si">{:5.1f}</span><span class="s1">, </span><span class="si">{:5.1f}</span><span class="s1">) \ \ U=</span><span class="si">{:5.3f}</span><span class="s1">$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cg</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cg</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">U</span><span class="p">(</span><span class="n">cg</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">utext</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$c_0$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$c_1$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;The No-Arbitrage argument&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"03cf926a2e084f34b5f6873f58d242b3": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "064ea9c85662449fae9d916fe97b640f": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "children": ["IPY_MODEL_138ac116283c4e7d929b5a3b0f57bcb3", "IPY_MODEL_67f811b376b54581bdee45155f6a7ef2", "IPY_MODEL_2cfa115b2d774d1eb2ce9039b8989fd7", "IPY_MODEL_9013467863504b97b9711cf41e3f29ea"], "layout": "IPY_MODEL_1d75d273bba2449d8af7e37cd6b499d7"}}, "094f470f4f6649c68f88b6b27bbb7b60": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "IntSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "I", "layout": "IPY_MODEL_4a9df9e37204415dba79f72d4afaca98", "max": 200, "min": 50, "step": 10, "style": "IPY_MODEL_6f251514fbe4475e96960afb9c5a9902", "value": 150}}, "138ac116283c4e7d929b5a3b0f57bcb3": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "FloatSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "p", "layout": "IPY_MODEL_59605589006947548638b65d013388b5", "max": 2, "min": 0.2, "step": 0.1, "value": 1.1}}, "1d75d273bba2449d8af7e37cd6b499d7": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "20aaaeac7698408db5f08c6f8a71fe8d": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "jupyter-js-widgets", "_model_module_version": "~2.1.4", "_view_module": "jupyter-js-widgets", "_view_module_version": "~2.1.4", "layout": "IPY_MODEL_a0cb99ec5fd14b629c15faf23061138d", "msg_throttle": 1}}, "24eb067952ba4aacbf45d9bcc873287f": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "jupyter-js-widgets", "_model_module_version": "~2.1.4", "_view_module": "jupyter-js-widgets", "_view_module_version": "~2.1.4", "layout": "IPY_MODEL_789ca9bdfab0453a9d7680fcf940beb3", "msg_throttle": 1}}, "2c60942d35e844369c4a89cd5c931519": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "SliderStyleModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "2cfa115b2d774d1eb2ce9039b8989fd7": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "FloatSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "a", "layout": "IPY_MODEL_303c5b488f6440b9868629c8a1ebf0c6", "max": 0.8, "min": 0.2, "step": 0.1, "value": 0.6}}, "303c5b488f6440b9868629c8a1ebf0c6": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "33e77c1ec0f64526b75ab13c4c38c708": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "children": ["IPY_MODEL_9e676ba9885f4011a70e9cfa1d4814c5", "IPY_MODEL_dfe64a110cb446ee94636d474a470cd1"], "layout": "IPY_MODEL_36e740ef7f4a461c9e952de8b98004c1"}}, "356e4b9845a04111aaf32ede5c0bb742": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "FloatSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "a", "layout": "IPY_MODEL_8c3f851e06424a60972a7d39db228ec8", "max": 0.9, "min": 0.1, "step": 0.1, "value": 0.5}}, "36e740ef7f4a461c9e952de8b98004c1": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "394c09a8a68f48fbae8e234a22ff28b3": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "3b47733435424f6bbfe981bafec7cc7b": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "SliderStyleModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "3cc82ab9728647ed9fd526cb957de4ce": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "47e1c488f3a14ac4bca317a47f0dda9d": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "children": ["IPY_MODEL_a56a2656ffee40a9a8ef27cf6be6a5e9", "IPY_MODEL_eafcba014c0049528042824b9ae7ae2e"], "layout": "IPY_MODEL_6995674287c246cc9b554ab42fedb30e"}}, "4a9df9e37204415dba79f72d4afaca98": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "4aeb78e887604375841ef96f9a7728db": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "59605589006947548638b65d013388b5": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "5a61a5aa775c4883b4f4a863c653b312": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "5c48505d651b4eb186ed55c5fcc2c735": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "IntSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "I", "layout": "IPY_MODEL_dab93e5de107484fa107729cdbca4473", "max": 150, "min": 50, "step": 10, "style": "IPY_MODEL_2c60942d35e844369c4a89cd5c931519", "value": 150}}, "5e5e4486f5bb4841adbeaf0636572275": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "67f811b376b54581bdee45155f6a7ef2": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "IntSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "I", "layout": "IPY_MODEL_c26b25c962a349acbcb325368e268a2e", "max": 200, "min": 50, "step": 10, "style": "IPY_MODEL_a7f748292e1949698e9ba68324e1cf1e", "value": 120}}, "6995674287c246cc9b554ab42fedb30e": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "6f251514fbe4475e96960afb9c5a9902": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "SliderStyleModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "6f3e6ebbb5b14de5b4741f27c30af70d": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "789ca9bdfab0453a9d7680fcf940beb3": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "7b155e43bbc646d3b7909e0914db0e5c": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "FloatSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "p", "layout": "IPY_MODEL_84d739eedf4b4addab570f0a9bc3a954", "max": 2, "min": 0.2, "step": 0.1, "value": 1.6}}, "7b97f59127f24b8c9e7a69bc6c57f29c": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "7d60aa3a65ec4e8f915255270e21264c": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "82813221b24c42a3859cce8776acd85e": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "841d8792d23d4017be6147a0f3475752": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "84d739eedf4b4addab570f0a9bc3a954": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "86c6d45fee634ab4bae92e8078aa708d": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "8c3f851e06424a60972a7d39db228ec8": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "9013467863504b97b9711cf41e3f29ea": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "jupyter-js-widgets", "_model_module_version": "~2.1.4", "_view_module": "jupyter-js-widgets", "_view_module_version": "~2.1.4", "layout": "IPY_MODEL_c71b656a09e34e07b21dffbf7f7a8c32", "msg_throttle": 1}}, "909e6610225e4820a97ed5e37f6dbaff": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "96255db2342349738bbed1f9405e1476": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "FloatSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "p", "layout": "IPY_MODEL_82813221b24c42a3859cce8776acd85e", "max": 2, "min": 0.2, "step": 0.1, "value": 1.1}}, "97fac39e6cd7495d88e3916ce199081f": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "FloatSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "a", "layout": "IPY_MODEL_86c6d45fee634ab4bae92e8078aa708d", "max": 0.9, "min": 0.1, "step": 0.1, "value": 0.6}}, "987e9ffda86e47b9951be0d8d0c07a4b": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "children": ["IPY_MODEL_ee282882f97849fba4b9859bfdb95465", "IPY_MODEL_5c48505d651b4eb186ed55c5fcc2c735", "IPY_MODEL_356e4b9845a04111aaf32ede5c0bb742", "IPY_MODEL_da75b08390004e2c8317cedf50737056"], "layout": "IPY_MODEL_ccd858f84dff48108cfa82478a8a90ac"}}, "9e676ba9885f4011a70e9cfa1d4814c5": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "FloatSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "c0g", "layout": "IPY_MODEL_f131949f999542018f247d2cdb7dc291", "min": 1, "step": 0.1, "value": 71.1}}, "a0cb99ec5fd14b629c15faf23061138d": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "a56a2656ffee40a9a8ef27cf6be6a5e9": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "FloatSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "c0g", "layout": "IPY_MODEL_e43df0c97964468f9bc4f1a38d1665da", "min": 1, "step": 0.1, "value": 50}}, "a5b7ef60f25d437692b5ba63c5bebe5a": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "FloatSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "p", "layout": "IPY_MODEL_03cf926a2e084f34b5f6873f58d242b3", "max": 2, "min": 0.5, "step": 0.1, "value": 1.2000000000000002}}, "a7f748292e1949698e9ba68324e1cf1e": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "SliderStyleModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "aaa611f14ca9464f965b12eee8171e99": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "ac5de043ed794de9a4c139b9afec8bd4": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "FloatSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "a", "layout": "IPY_MODEL_841d8792d23d4017be6147a0f3475752", "max": 0.8, "min": 0.2, "step": 0.1, "value": 0.6}}, "b189074f0fdd461f953a0987ef1e42f8": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "children": ["IPY_MODEL_96255db2342349738bbed1f9405e1476", "IPY_MODEL_094f470f4f6649c68f88b6b27bbb7b60", "IPY_MODEL_d352a293d105466b81ee43216f957be2", "IPY_MODEL_24eb067952ba4aacbf45d9bcc873287f"], "layout": "IPY_MODEL_5a61a5aa775c4883b4f4a863c653b312"}}, "b7a75605705c4b3ab2744ce9decdc135": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "children": ["IPY_MODEL_7b155e43bbc646d3b7909e0914db0e5c", "IPY_MODEL_d1c38f0064334042850c38a6db4c4fc4", "IPY_MODEL_ac5de043ed794de9a4c139b9afec8bd4", "IPY_MODEL_fa401d2be8de4b88adc42e05a5af1148"], "layout": "IPY_MODEL_ba597629c2d541d9b92b725621bd3a70"}}, "ba597629c2d541d9b92b725621bd3a70": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "c26b25c962a349acbcb325368e268a2e": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "c71b656a09e34e07b21dffbf7f7a8c32": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "ccd858f84dff48108cfa82478a8a90ac": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "d1c38f0064334042850c38a6db4c4fc4": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "IntSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "I", "layout": "IPY_MODEL_7d60aa3a65ec4e8f915255270e21264c", "max": 200, "min": 50, "step": 10, "style": "IPY_MODEL_3b47733435424f6bbfe981bafec7cc7b", "value": 170}}, "d352a293d105466b81ee43216f957be2": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "FloatSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "a", "layout": "IPY_MODEL_3cc82ab9728647ed9fd526cb957de4ce", "max": 0.8, "min": 0.2, "step": 0.1, "value": 0.6}}, "da75b08390004e2c8317cedf50737056": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "jupyter-js-widgets", "_model_module_version": "~2.1.4", "_view_module": "jupyter-js-widgets", "_view_module_version": "~2.1.4", "layout": "IPY_MODEL_6f3e6ebbb5b14de5b4741f27c30af70d", "msg_throttle": 1}}, "dab93e5de107484fa107729cdbca4473": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "dfe64a110cb446ee94636d474a470cd1": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "jupyter-js-widgets", "_model_module_version": "~2.1.4", "_view_module": "jupyter-js-widgets", "_view_module_version": "~2.1.4", "layout": "IPY_MODEL_4aeb78e887604375841ef96f9a7728db", "msg_throttle": 1}}, "e28378ee5bf84286b498a7f6db9e67b8": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "IntSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "I", "layout": "IPY_MODEL_aaa611f14ca9464f965b12eee8171e99", "max": 150, "min": 50, "step": 10, "style": "IPY_MODEL_fc6d99b57cdb4a4194e75803db7f15b5", "value": 100}}, "e43df0c97964468f9bc4f1a38d1665da": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "eafcba014c0049528042824b9ae7ae2e": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "jupyter-js-widgets", "_model_module_version": "~2.1.4", "_view_module": "jupyter-js-widgets", "_view_module_version": "~2.1.4", "layout": "IPY_MODEL_7b97f59127f24b8c9e7a69bc6c57f29c", "msg_throttle": 1}}, "ee282882f97849fba4b9859bfdb95465": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "FloatSliderModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "description": "p", "layout": "IPY_MODEL_394c09a8a68f48fbae8e234a22ff28b3", "max": 2, "min": 0.5, "step": 0.1, "value": 1.6}}, "f131949f999542018f247d2cdb7dc291": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "LayoutModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "fa401d2be8de4b88adc42e05a5af1148": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "jupyter-js-widgets", "_model_module_version": "~2.1.4", "_view_module": "jupyter-js-widgets", "_view_module_version": "~2.1.4", "layout": "IPY_MODEL_5e5e4486f5bb4841adbeaf0636572275", "msg_throttle": 1}}, "fc6d99b57cdb4a4194e75803db7f15b5": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "SliderStyleModel", "state": {"_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4"}}, "fd0f770bb0a249a4a4be718eb0e3cddf": {"model_module": "jupyter-js-widgets", "model_module_version": "~2.1.4", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module_version": "~2.1.4", "_view_module_version": "~2.1.4", "children": ["IPY_MODEL_a5b7ef60f25d437692b5ba63c5bebe5a", "IPY_MODEL_e28378ee5bf84286b498a7f6db9e67b8", "IPY_MODEL_97fac39e6cd7495d88e3916ce199081f", "IPY_MODEL_20aaaeac7698408db5f08c6f8a71fe8d"], "layout": "IPY_MODEL_909e6610225e4820a97ed5e37f6dbaff"}}}, "version_major": 1, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/micro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="micro_top.html" title="previous page">Micro Theory</a>
+    <a class='right-next' id="next-link" href="../how/how_top.html" title="next page">This JupyterBook</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jonathan Conning<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
